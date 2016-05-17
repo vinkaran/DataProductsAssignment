@@ -1,19 +1,17 @@
 library(shiny)
 shinyUI(pageWithSidebar(
-  headerPanel("BMI Calculation"),
+  headerPanel("Calories Burnt Calculation"),
   sidebarPanel(
-    h4('BMI'),
-    numericInput('height', 'Height in Meters', 1.55),
-    numericInput('Weight', 'Weight in KG', 75)
+    h4('Calroes Burnt'),
+    selectInput('Sex', label='Select your Sex', c("Male","Female")),
+    numericInput('Age', 'Your Age', 40),
+    numericInput('Weight', 'Weight in Lbs', 175),
+    numericInput('HeartRate', 'Heart Rate in BPM', 125),
+    numericInput('Wtime', 'Workout Time in Mins', 60)
+    
     ),
   mainPanel(
-    h4('Your BMI is  - '),
-    textOutput("bmi"),
-    h4('BMI Vs Age'),
-    helpText("BMI < 18.5 - Under Weight"),
-    helpText("BMI Between 18.5 and 24.9 - Normal Weight"),
-    helpText("BMI Between 25 and 29.9 - Over Weight"),
-    helpText("BMI > 30 - Obese")
-    
+    h4('Your Calories Burnt is - '),
+    textOutput("Calories")
   )
 ))
